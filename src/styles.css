@@ -1,0 +1,402 @@
+@import url("./fonts.css");
+
+/* -----------------------------------
+   ROOT VARIABLES
+   Global color, typography, and spacing variables
+------------------------------------- */
+:root {
+  /* Brand Colors */
+  --color-primary: #00234b; /* Barron’s Dark Blue */
+  --color-secondary: #006be4; /* Barron’s Bright Blue */
+  --color-accent-light-blue: #a4e6ff; /* Light Blue */
+  --color-accent-teal: #179596; /* Teal */
+  --color-accent-orange: #e8861d; /* Bright Orange */
+  --color-accent-red: #e11500; /* Bright Red */
+  --color-neutral-gray-50: #d4dad9; /* Neutral Gray */
+
+  /* Text and Background */
+  --color-text: #333333; /* Default text color */
+  --color-background: #ffffff; /* Default background color */
+
+  /* Font Families */
+  --font-body: "Aileron", Helvetica, sans-serif; /* Sans-serif */
+  --font-heading: "Tiempos Headline", Georgia, serif; /* Serif for headlines */
+  --font-graph-serif: "Barrons Graph Serif", Georgia, serif; /* Graph serif */
+  --font-graph-sans: "Barrons Graph Sans", Arial, sans-serif; /* Graph sans-serif */
+
+  /* Base Typography */
+  --font-size-base: 1rem; /* 16px */
+  --line-height-base: 1.5;
+  --g-body-font-size: 1.15rem;
+
+  /* Spacing Scale */
+  --spacing-1: 0.25rem; /* 4px */
+  --spacing-2: 0.5rem; /* 8px */
+  --spacing-3: 1rem; /* 16px */
+  --spacing-4: 1.5rem; /* 24px */
+  --spacing-5: 2rem; /* 32px */
+
+  /* named width */
+  --g-width-body: 620px;
+  --g-width-wide: 1050px;
+  --g-body-padding-top: 20px;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: var(--g-width-body);
+  position: relative;
+}
+
+/* -----------------------------------
+   GLOBAL RESETS AND BASE
+------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-background);
+}
+
+.article-page img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* -----------------------------------
+   TYPOGRAPHY
+------------------------------------- */
+
+.article-page h1 {
+  font-size: 2rem;
+}
+.article-page h2 {
+  font-size: 1.75rem;
+}
+.article-page h3 {
+  font-size: 1.5rem;
+}
+
+.article-page h1 {
+  font-family: var(--font-heading);
+}
+.chart-label {
+  font-family: var(--font-graph-sans);
+}
+.chart-annotation {
+  font-family: var(--font-graph-serif);
+}
+
+.article-page a {
+  color: var(--color-secondary);
+  text-decoration: none;
+}
+
+.article-page a:hover {
+  text-decoration: underline;
+}
+
+.g-text {
+  font-size: var(--g-body-font-size) !important;
+  line-height: var(--line-height-base) !important;
+}
+
+.article-page .g-text {
+  margin-top: var(--g-body-padding-top) !important;
+  padding-top: 0 !important;
+  font-family: var(--font-heading);
+}
+
+/* -----------------------------------
+   UTILITY CLASSES
+------------------------------------- */
+
+/* Flex Utilities */
+.flex {
+  display: flex;
+}
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.justify-between {
+  justify-content: space-between;
+}
+
+/* Grid Utilities */
+.grid {
+  display: grid;
+  gap: var(--spacing-3);
+}
+.grid-cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.grid-cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Spacing Utilities */
+/* -----------------------------------
+   SPACING UTILITIES
+   These classes handle margin and padding
+   with a consistent spacing scale.
+------------------------------------- */
+
+/* Margin Top */
+.mt-1 {
+  margin-top: var(--spacing-1);
+}
+.mt-2 {
+  margin-top: var(--spacing-2);
+}
+.mt-3 {
+  margin-top: var(--spacing-3);
+}
+.mt-4 {
+  margin-top: var(--spacing-4);
+}
+.mt-5 {
+  margin-top: var(--spacing-5);
+}
+
+/* Margin Bottom */
+.mb-1 {
+  margin-bottom: var(--spacing-1);
+}
+.mb-2 {
+  margin-bottom: var(--spacing-2);
+}
+.mb-3 {
+  margin-bottom: var(--spacing-3);
+}
+.mb-4 {
+  margin-bottom: var(--spacing-4);
+}
+.mb-5 {
+  margin-bottom: var(--spacing-5);
+}
+
+/* Margin Left */
+.ml-1 {
+  margin-left: var(--spacing-1);
+}
+.ml-2 {
+  margin-left: var(--spacing-2);
+}
+.ml-3 {
+  margin-left: var(--spacing-3);
+}
+.ml-4 {
+  margin-left: var(--spacing-4);
+}
+.ml-5 {
+  margin-left: var(--spacing-5);
+}
+
+/* Margin Right */
+.mr-1 {
+  margin-right: var(--spacing-1);
+}
+.mr-2 {
+  margin-right: var(--spacing-2);
+}
+.mr-3 {
+  margin-right: var(--spacing-3);
+}
+.mr-4 {
+  margin-right: var(--spacing-4);
+}
+.mr-5 {
+  margin-right: var(--spacing-5);
+}
+
+/* Padding Top */
+.pt-1 {
+  padding-top: var(--spacing-1);
+}
+.pt-2 {
+  padding-top: var(--spacing-2);
+}
+.pt-3 {
+  padding-top: var(--spacing-3);
+}
+.pt-4 {
+  padding-top: var(--spacing-4);
+}
+.pt-5 {
+  padding-top: var(--spacing-5);
+}
+
+/* Padding Bottom */
+.pb-1 {
+  padding-bottom: var(--spacing-1);
+}
+.pb-2 {
+  padding-bottom: var(--spacing-2);
+}
+.pb-3 {
+  padding-bottom: var(--spacing-3);
+}
+.pb-4 {
+  padding-bottom: var(--spacing-4);
+}
+.pb-5 {
+  padding-bottom: var(--spacing-5);
+}
+
+/* Padding Left */
+.pl-1 {
+  padding-left: var(--spacing-1);
+}
+.pl-2 {
+  padding-left: var(--spacing-2);
+}
+.pl-3 {
+  padding-left: var(--spacing-3);
+}
+.pl-4 {
+  padding-left: var(--spacing-4);
+}
+.pl-5 {
+  padding-left: var(--spacing-5);
+}
+
+/* Padding Right */
+.pr-1 {
+  padding-right: var(--spacing-1);
+}
+.pr-2 {
+  padding-right: var(--spacing-2);
+}
+.pr-3 {
+  padding-right: var(--spacing-3);
+}
+.pr-4 {
+  padding-right: var(--spacing-4);
+}
+.pr-5 {
+  padding-right: var(--spacing-5);
+}
+
+/* Combined Margin */
+.mx-1 {
+  margin-left: var(--spacing-1);
+  margin-right: var(--spacing-1);
+}
+.mx-2 {
+  margin-left: var(--spacing-2);
+  margin-right: var(--spacing-2);
+}
+.mx-3 {
+  margin-left: var(--spacing-3);
+  margin-right: var(--spacing-3);
+}
+.mx-4 {
+  margin-left: var(--spacing-4);
+  margin-right: var(--spacing-4);
+}
+.mx-5 {
+  margin-left: var(--spacing-5);
+  margin-right: var(--spacing-5);
+}
+
+.my-1 {
+  margin-top: var(--spacing-1);
+  margin-bottom: var(--spacing-1);
+}
+.my-2 {
+  margin-top: var(--spacing-2);
+  margin-bottom: var(--spacing-2);
+}
+.my-3 {
+  margin-top: var(--spacing-3);
+  margin-bottom: var(--spacing-3);
+}
+.my-4 {
+  margin-top: var(--spacing-4);
+  margin-bottom: var(--spacing-4);
+}
+.my-5 {
+  margin-top: var(--spacing-5);
+  margin-bottom: var(--spacing-5);
+}
+
+/* Combined Padding */
+.px-1 {
+  padding-left: var(--spacing-1);
+  padding-right: var(--spacing-1);
+}
+.px-2 {
+  padding-left: var(--spacing-2);
+  padding-right: var(--spacing-2);
+}
+.px-3 {
+  padding-left: var(--spacing-3);
+  padding-right: var(--spacing-3);
+}
+.px-4 {
+  padding-left: var(--spacing-4);
+  padding-right: var(--spacing-4);
+}
+.px-5 {
+  padding-left: var(--spacing-5);
+  padding-right: var(--spacing-5);
+}
+
+.py-1 {
+  padding-top: var(--spacing-1);
+  padding-bottom: var(--spacing-1);
+}
+.py-2 {
+  padding-top: var(--spacing-2);
+  padding-bottom: var(--spacing-2);
+}
+.py-3 {
+  padding-top: var(--spacing-3);
+  padding-bottom: var(--spacing-3);
+}
+.py-4 {
+  padding-top: var(--spacing-4);
+  padding-bottom: var(--spacing-4);
+}
+.py-5 {
+  padding-top: var(--spacing-5);
+  padding-bottom: var(--spacing-5);
+}
+
+
+/* -----------------------------------
+   ACCESSIBILITY
+------------------------------------- */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
+@media (max-width: 767px) {
+  .article-page .container {
+    margin: 0 20px !important;
+  }
+  .article-page .g-text {
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+  }
+}

@@ -1,0 +1,10 @@
+{
+	"capi": false,
+	"https": false,
+	"fallbackImage": "",
+	"framework": "svelte",
+	"layout": "bleed",
+	"slug": "dotplot-explainer",
+	"svelteVersion": "svelte5",
+	"uuid": "fe5e2fbf-6a8b-47f5-84ea-8bdb7fab57a4"
+}
