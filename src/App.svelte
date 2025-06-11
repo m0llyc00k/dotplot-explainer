@@ -1,11 +1,16 @@
 <script>
+  import { onMount } from "svelte";
+
   import {
     Header,
     Methodology,
     WriteToSection,
     Text,
     UtilityBar,
+    SvelteWrapper,
   } from "barrons-graphics-components";
+
+  // import SvelteWrapper from "$lib/components/SvelteWrapper/index.svelte";
 
   import {
     shouldRenderBlock,
@@ -15,41 +20,21 @@
 
   import "./styles.css";
 
-  let { data } = $props();
+  let { data = { body: [] }, rawFetchedData = [] } = $props();
 
-  const devUrl =
-    "https://asset.wsj.net/wsjnewsgraphics/projects/archibald/1pm2HrUujipAyZemMv2kct7YE0orTruGgGqqTp-9kqRw-dev.json";
-
-  const prodUrl =
-    "";
-
-  const hostname = window.location.hostname;
-  const isDev = hostname === "localhost" || hostname.startsWith("dev.");
-
-  let url;
-
-  if (isDev) {
-    url = devUrl;
-  } else {
-    url = prodUrl || devUrl;
-    if (!prodUrl) {
-      console.warn("[Archibald] prodUrl not provided – falling back to devUrl");
-    }
-  }
+  const url =
+    "https://asset.wsj.net/wsjnewsgraphics/projects/archibald/1xJQdxiSh2zSkALq5F3VjLlfl-BgOa7HeLSW2j34uBl0-dev.json";
 
   let mounted = $state(false);
   let visible = $state([]);
   let isLoggedIn = $state(false);
   let isSubscriber = $state(false);
 
-  $effect(async () => {
+  onMount(async () => {
     try {
       const response = await fetch(url);
       data = await response.json();
-
-      if (isDev) {
-        console.log("[Archibald] Loading inset from:", url);
-      }
+      // console.log("Fetched data:", data);
 
       // =====================
       // 🔒 SUBSCRIPTION GATE
@@ -88,6 +73,10 @@
         <div class="content-block">
           {#if comp.type === "text"}
             <Text text={comp.value} />
+          {:else if comp.type === "SvelteWrapper"}
+            <div class="grid-container my-5">
+              <SvelteWrapper data={comp.value} />
+            </div>
           {:else if comp.type === "methodology"}
             <Methodology data={comp.value} />
           {:else if comp.type === "writeToSection"}
