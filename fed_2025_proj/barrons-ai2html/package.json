@@ -1,0 +1,12 @@
+{
+    "name": "ai2html-preview",
+    "version": "1.0.0",
+    "description": "Generate ai2html inset preview",
+    "scripts": {
+        "clearport":"killall -9 node",
+        "start-server":"open 'https://wsj-newsroom-tools.sc.onservo.com/dynamic-inset-previewer?url=http://localhost:8080/inset_preview.json';npx http-server -c-1 --cors;",
+        "preview": "npm run clearport & npm run start-server"
+    },
+    "author": "",
+    "license": "ISC"
+}

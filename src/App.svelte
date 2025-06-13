@@ -8,6 +8,8 @@
     Text,
     UtilityBar,
     SvelteWrapper,
+    AiToHtml,
+    StaticScroller,
   } from "barrons-graphics-components";
 
   // import SvelteWrapper from "$lib/components/SvelteWrapper/index.svelte";
@@ -73,6 +75,10 @@
         <div class="content-block">
           {#if comp.type === "text"}
             <Text text={comp.value} />
+          {:else if comp.type === "staticScroller"}
+            <StaticScroller data={comp.value} />
+          {:else if comp.type === "aiToHtml"}
+            <AiToHtml data={comp.value} />
           {:else if comp.type === "SvelteWrapper"}
             <div class="grid-container my-5">
               <SvelteWrapper data={comp.value} />
